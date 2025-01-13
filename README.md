@@ -7,5 +7,8 @@ A Python implementation of Conway's Game of Life. The game simulates the evoluti
    ```bash
    git clone https://github.com/Antoine-92/game-of-life-Antoine_Richard-CFOD2
    cd game-of-life
+   ```
+2. Run the project 
+    ```bash
    python main.py
    ```
