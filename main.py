@@ -26,9 +26,9 @@ def count_live_neighbors(grid, x, y):
         (x, y - 1),             (x, y + 1),
         (x + 1, y - 1), (x + 1, y), (x + 1, y + 1),
     ]
-    count = 0	
+    count = 0
     for nx, ny in neighbors:
-        if 0 <= nx < rows and 0 <= ny < cols and grid[nx][ny] == "#":
+        if 0 <= nx < rows and 0 <= ny < cols - 1 and grid[nx][ny] == "#":
             count += 1
     return count
 
