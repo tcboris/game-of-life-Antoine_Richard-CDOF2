@@ -54,6 +54,5 @@ def main():
         print_grid(grid)
         grid = next_generation(grid)
         time.sleep(0.5)
-
-if _name_ == "_main_":
+if __name__ == "__main__":
     main()
