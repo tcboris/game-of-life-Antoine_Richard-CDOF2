@@ -2,9 +2,15 @@ import time
 import os
 import random
 
-def create_grid(rows, cols):
-    """Create a grid with random live and dead cells."""
-    return [[random.choice([" ", "#"]) for _ in range(cols)] for _ in range(rows)]
+def create_grid(rows, cols, live_density=0.5, pattern=None):
+    """Create a grid with customizable live density or predefined pattern."""
+    if pattern:
+        return [[pattern.get((x, y), " ") for y in range(cols)] for x in range(rows)]
+    else:
+        return [
+            ["#" if random.random() < live_density else " " for _ in range(cols)]
+            for _ in range(rows)
+        ]
 
 def print_grid(grid):
     """Print the grid to the console."""
@@ -20,7 +26,7 @@ def count_live_neighbors(grid, x, y):
         (x, y - 1),             (x, y + 1),
         (x + 1, y - 1), (x + 1, y), (x + 1, y + 1),
     ]
-    count = 0
+    count = 0	
     for nx, ny in neighbors:
         if 0 <= nx < rows and 0 <= ny < cols and grid[nx][ny] == "#":
             count += 1
@@ -49,5 +55,5 @@ def main():
         grid = next_generation(grid)
         time.sleep(0.5)
 
-if __name__ == "__main__":
+if _name_ == "_main_":
     main()
